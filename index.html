@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <head>
+       <title>Hunting Github</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script>
+            $(document).ready(function() {
+                $.get("https://api.github.com/users/raymondhk", displayName)
+                
+                function displayName(data){
+                    let name = data['name']
+                    // console.log(name)
+                    var button = document.getElementById('someButton')
+                    button.addEventListener("click", function(){
+                        $('#name').html(`<h2>${name}</h2>`)
+                    })
+                }  
+            });
+    </script>
+   </head>
+   <body>
+        <button id="someButton">Click for my Name!</button>
+        <div id="name"></div>
+   </body>
+</html>
